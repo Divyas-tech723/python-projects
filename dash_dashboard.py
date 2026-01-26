@@ -1,11 +1,12 @@
-import dash  #helps us make interactive web pages (graps,dropdowns)
-from dash import html, dcc #html--> toolbox for making headings.divs,paragraphs(like web HTML)  dcc--> dash core components: drophs graphs sliders 
+# Interactive Data Dashboard using Dash and Plotly
+import dash 
+from dash import html, dcc  
 from dash.dependencies import Input,Output 
-import plotly.express as px  #is a simple plotting tool to make chart fast(scatter,line,bar)
-import pandas as pd  #helps store  an filter tables of data(dataframes)
+import plotly.express as px  
+import pandas as pd
 
 #Load sample dataset  
-df = px.data.gapminder().query("year == 2007") #gapminder --> data about countries, ex--> px.data.iris()--> data about flowers and px.data.tips()--> restaurant tips data , px.data.carshare()--> car sharing data
+df = px.data.gapminder().query("year == 2007")
 
 #Initialize Dash app
 app = dash.Dash(__name__)
@@ -22,6 +23,7 @@ app.layout = html.Div([
 
     dcc.Graph(id='life-exp-chart')
 ])
+
 #Callback to update graph  
 @app.callback(
     Output('life-exp-chart', 'figure'),
