@@ -1,3 +1,4 @@
+# Simple NLP Chatbot using NLTK, TF-IDF, and Cosine Similarity
 import nltk
 import numpy as np
 import random
